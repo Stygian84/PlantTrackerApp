@@ -1,0 +1,61 @@
+#camera-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.camera-item {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  align-items: center;
+  margin-bottom: 1.5vh;
+  width: 90%;
+  height: 6.5vh;
+
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.camera-item div:nth-child(1) {
+  margin-left: 3%;
+  padding: 3%;
+  height: 70%;
+  width: 11%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-row-status {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 0 2% 0;
+}
+.camera-row-status p {
+  margin: 0;
+  font-size: 1.75vh;
+  color: #a5a5a5;
+  font-weight: "500";
+}
+
+#water-the-plant {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.camera-item div img {
+  margin: 3% 3% 3% 3%;
+  padding: 3%;
+  width: 80%;
+}
+
+/*Animation*/
+.camera-item:has(#water-the-plant):hover:active {
+  background-color: white !important;
+}
+.camera-item:has(#water-the-plant):hover:active p {
+  color: #7aa0b8 !important;
+}
