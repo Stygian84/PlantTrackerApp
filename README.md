@@ -22,7 +22,9 @@ Targeted Device : IPhone 13 & 14 (390px x 844px)
 
 # Notable Features
 
-1. Recent visited pages in the homepage.
-2. Real-time Weather.  
+1. Recent visited pages in the homepage are stored locally ( unique to each device ).
+2. Real-time Weather using [OpenWeather API](https://openweathermap.org/api).
+3. Integration with PostgreSQL Database.
+4. Graphs to show past data in the interval of 30 , 90 , 180 days.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/05c04490-0223-4d30-a855-31f49fb1d31e/deploy-status)](https://app.netlify.com/sites/planttracker/deploys)
