@@ -1,25 +1,30 @@
 // Not Used
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../index.css";
+import { useNavigate } from "react-router-dom";
+import { Skeleton } from "@mui/material";
 
 function SettingsTop() {
+  const navigate = useNavigate();
   return (
     <div id="top" className="top">
-      <div className="img-container">
-        <img src={require("../images/bars.png")} alt=""></img>
+      <div className="img-container" onClick={() => navigate(-1)}>
+        <img src={require("../images/arrow.png")} alt=""></img>
       </div>
       <p className="top-title">Settings not developed yet - TODO </p>
     </div>
   );
 }
 function SettingsContent() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const navigate = useNavigate();
   return (
     <div id="content" className="content">
       {/* Header Section */}
       <div id="header-container">
         <div id="morning">
-          <p style={{ fontSize: "3vh" }}>Good settings,</p>
-          <p style={{ fontSize: "2.5vh" }}>Ron and Jen!</p>
+          <p style={{ fontSize: "3vh" }}>Settings,</p>
+          <p style={{ fontSize: "2.5vh" }}>Nicholas!</p>
         </div>
         <div id="weather-container">
           <p style={{ fontSize: "2vh" }}>Singapore</p>
@@ -31,9 +36,22 @@ function SettingsContent() {
 
       {/* Box Feature Section */}
       <div id="feature-container">
-        <div className="feature-item" id="feature1">
-          <img src={require("../images/greenstatus.png")} alt="Status"></img>
-          <img src={require("../images/whitestatus.png")} className="new-image" alt="Status"></img>
+        <div className="feature-item" id="feature1" onClick={() => navigate("/row", { state: { prev: "Status" } })}>
+          {!imageLoaded && (
+            <Skeleton
+              className="skeleton"
+              variant="rounded"
+              style={{ width: "30vw", height: "10vh", marginTop: "2vh" }}
+            />
+          )}
+          <img src={require("../images/greenstatus.png")} alt="Status" onLoad={() => setImageLoaded(true)} />
+          <img
+            src={require("../images/whitestatus.png")}
+            className="new-image"
+            alt="Status"
+            onLoad={() => setImageLoaded(true)}
+          />
+
           <p style={{ color: "#8FA586" }}>Status</p>
         </div>
         <div className="feature-item" style={{ marginRight: "15%" }} id="feature2">

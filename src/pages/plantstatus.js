@@ -3,7 +3,7 @@ import axios from "axios";
 import "../index.css";
 import "../css/pages/plantstatus.css";
 import { useNavigate, useLocation } from "react-router-dom";
-import { fetchDataFromLinks } from "../javascript/utils";
+import { addVisitedPage, fetchDataFromLinks } from "../javascript/utils";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Brush, ResponsiveContainer } from "recharts";
 
 import {
@@ -35,7 +35,7 @@ function PlantStatusTop() {
         <img src={require("../images/arrow.png")} alt=""></img>
       </div>
       <p className="top-title">
-        ROW {row_idx} PLANT {plant_id} {capitalizeAllLetters(properties)}
+        PLANT {plant_id} {capitalizeAllLetters(properties)}
       </p>
     </div>
   );
@@ -60,6 +60,7 @@ function PlantStatusContent() {
   const [slicedDays, setSlicedDays] = useState(30);
   const [selectedChip, setSelectedChip] = useState("1m");
   const navigate = useNavigate();
+  addVisitedPage([plant_id,plant_name,properties,plant_status, plant_value,])
   const descriptions = {
     temperature:
       "Air temperature plays a crucial role in the growth and development of plants, influencing various physiological processes. Different plant species have specific temperature requirements for optimal growth. Generally, warmer temperatures promote faster metabolic rates, leading to increased photosynthesis and faster growth during the growing season.",
@@ -178,8 +179,8 @@ function PlantStatusContent() {
             setLeftRedValue(value - bad_threshold);
             setRightRedValue(value + bad_threshold);
             setPropertyValue(value);
-            offsetMin = good_threshold*2;
-            offsetMax = good_threshold*2;
+            offsetMin = good_threshold * 2;
+            offsetMax = good_threshold * 2;
             break;
           }
         }

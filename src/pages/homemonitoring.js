@@ -33,7 +33,7 @@ function HomeMonitoringContent() {
 
   const [formattedDate, setFormattedDate] = useState("");
   useEffect(() => {
-    const apiKey = "662c2df70979465f90b101456566dea2";
+    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
     const city = "Singapore";
     const fetchData = () => {
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -70,16 +70,24 @@ function HomeMonitoringContent() {
 
   // For Recent Items logic
   const storedPages = JSON.parse(localStorage.getItem("visitedPages")) || [];
-  const lastTwoSegmentsArray = storedPages.map((storedPages) => {
-    const segments = storedPages.split("/").filter(Boolean);
-    return segments.slice(-2);
-  });
+  // const lastTwoSegmentsArray = storedPages.map((storedPages) => {
+  //   const segments = storedPages.split("/").filter(Boolean);
+  //   return segments.slice(-2);
+  // });
 
   let Recent = [];
-  for (let i = 0; i < lastTwoSegmentsArray.length; i++) {
-    let name = lastTwoSegmentsArray[i][0];
-    let index = lastTwoSegmentsArray[i][1];
-    Recent.push(<RecentItem type={name} idx={index} key={i} />);
+  for (let i = 0; i < storedPages.length; i++) {
+    let [plant_id, plant_name, properties, plant_status, plant_value] = storedPages[i];
+    Recent.push(
+      <RecentItem
+        properties={properties}
+        plant_id={plant_id}
+        plant_name={plant_name}
+        plant_status={plant_status}
+        plant_value={plant_value}
+        key={i}
+      />
+    );
   }
 
   return (
@@ -88,7 +96,7 @@ function HomeMonitoringContent() {
       <div id="header-container">
         <div id="morning">
           <p style={{ fontSize: "3vh" }}>Good Morning,</p>
-          <p style={{ fontSize: "2.5vh" }}>Ron and Jen!</p>
+          <p style={{ fontSize: "2.5vh" }}>Nicholas!</p>
         </div>
         <div id="weather-container">
           <p style={{ fontSize: "2vh" }}>
@@ -102,7 +110,11 @@ function HomeMonitoringContent() {
 
       {/* Box Feature Section */}
       <div id="feature-container">
-        <div className="feature-item" id="feature1" onClick={() => navigate("/row", { state: { prev: "Status" } })}>
+        <div
+          className="feature-item"
+          id="feature1"
+          onClick={() => navigate("/status/1", { state: { prev: "Status" } })}
+        >
           {!imageLoaded && (
             <Skeleton
               className="skeleton"
@@ -110,11 +122,7 @@ function HomeMonitoringContent() {
               style={{ width: "30vw", height: "10vh", marginTop: "2vh" }}
             />
           )}
-          <img
-            src={require("../images/greenstatus.png")}
-            alt="Status"
-            onLoad={() => setImageLoaded(true)}
-          />
+          <img src={require("../images/greenstatus.png")} alt="Status" onLoad={() => setImageLoaded(true)} />
           <img
             src={require("../images/whitestatus.png")}
             className="new-image"
@@ -129,7 +137,7 @@ function HomeMonitoringContent() {
           className="feature-item"
           style={{ marginRight: "15%" }}
           id="feature2"
-          onClick={() => navigate("/row", { state: { prev: "Camera" } })}
+          // onClick={() => navigate("/settings", { state: { prev: "Settings" } })}
         >
           {!imageLoaded && (
             <Skeleton
@@ -138,15 +146,15 @@ function HomeMonitoringContent() {
               style={{ width: "30vw", height: "10vh", marginTop: "2vh" }}
             />
           )}
-          <img src={require("../images/camera.png")} alt="Camera" onLoad={() => setImageLoaded(true)}></img>
+          <img src={require("../images/settings.png")} alt="Settings" onLoad={() => setImageLoaded(true)}></img>
           <img
-            src={require("../images/whitecamera.png")}
+            src={require("../images/whitesettings.png")}
             className="new-image"
             alt="Status"
             onLoad={() => setImageLoaded(true)}
           ></img>
 
-          <p style={{ color: "#8793AE" }}> Camera</p>
+          <p style={{ color: "#8793AE" }}> Settings</p>
         </div>
 
         {/* <div className="feature-item" id="feature3" onClick={() => navigate("/settings")}>
@@ -175,17 +183,29 @@ function RecentItem(props) {
     <div
       className="recent-item"
       onClick={() => {
-        navigate(`/${props.type}/${props.idx}`, {
-          state: { index: props.idx },
+        navigate(`/details/1/${props.properties}/${props.plant_id}`, {
+          state: {
+            row_idx: 1,
+            plant_id: props.plant_id,
+            plant_status: props.plant_status,
+            plant_value: props.plant_value,
+            plant_name: props.plant_name,
+          },
         });
       }}
     >
-      <img src={require(`../images/grey${props.type}.png`)} alt={props.type}></img>
-      <img src={require(`../images/white${props.type}.png`)} className="new-image" alt="Status"></img>
+      <img src={require(`../images/blue${props.properties.replace(/%20/g, "")}.png`)} alt={props.type}></img>
+      <img
+        src={require(`../images/white${props.properties.replace(/%20/g, "")}.png`)}
+        className="new-image"
+        alt="Status"
+      ></img>
       <div className="row-status">
-        <p style={{ fontSize: "2vh", color: "#737373", fontWeight: "500" }}>Row {props.idx}</p>
+        <p style={{ fontSize: "2vh", color: "#737373", fontWeight: "500" }}>
+          {props.plant_id}. {props.plant_name}
+        </p>
         <p style={{ fontSize: "1.5vh", color: "#A5A5A5", fontWeight: "500" }}>
-          {props.type.charAt(0).toUpperCase() + props.type.slice(1)}
+          {props.properties.replace(/%20/g, "").charAt(0).toUpperCase() + props.properties.replace(/%20/g, "").slice(1)}
         </p>
       </div>
       <p

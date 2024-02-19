@@ -13,7 +13,6 @@ import {
 } from "../javascript/colors";
 import CircularSliderwithBg from "../components/CircularSliderwithBg";
 import Divider from "@mui/material/Divider";
-import { addVisitedPage } from "../javascript/utils";
 
 function PlantTop() {
   const navigate = useNavigate();
@@ -24,13 +23,12 @@ function PlantTop() {
       <div className="img-container" onClick={() => navigate(-1)}>
         <img src={require("../images/arrow.png")} alt=""></img>
       </div>
-      <p className="top-title">ROW {index} PLANTS</p>
+      <p className="top-title">PLANTS</p>
     </div>
   );
 }
 
 function PlantContent() {
-  addVisitedPage(window.location.href);
   const location = useLocation();
   const { index } = location.state || {};
   const [plantRow, setPlantRow] = useState([]);

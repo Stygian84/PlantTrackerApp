@@ -2,15 +2,18 @@ import axios from "axios";
 
 function addVisitedPage(page) {
   const visitedPages = JSON.parse(localStorage.getItem("visitedPages")) || [];
-  const filteredPages = visitedPages.filter((visitedPage) => visitedPage !== page);
-  filteredPages.unshift(page);
+  const pageString = JSON.stringify(page);
+  const isPageVisited = visitedPages.some((visitedPage) => JSON.stringify(visitedPage) === pageString);
+  if (!isPageVisited) {
+    visitedPages.unshift(page);
+    if (visitedPages.length > 4) {
+      visitedPages.splice(4);
+    }
 
-  if (filteredPages.length > 4) {
-    filteredPages.splice(4);
+    localStorage.setItem("visitedPages", JSON.stringify(visitedPages));
   }
-
-  localStorage.setItem("visitedPages", JSON.stringify(filteredPages));
 }
+
 
 const fetchDataFromLinks = async (suffix) => {
   const links = [
