@@ -1,5 +1,6 @@
 # LINK
-The site can be accessed [here](https://planttracker.netlify.app)
+The web app can be accessed [here](https://planttracker.netlify.app)
+The NodeJS can be accessed [here](https://github.com/Stygian84/PlantTrackerNodeJS)
 
 # IMPORTANT
 1. Create `.env` file with `REACT_APP_RENDER_URL` and `REACT_APP_WEATHER_API_KEY` parameter. (The Render URL is for the NodeJS)
