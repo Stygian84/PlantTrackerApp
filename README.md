@@ -1,6 +1,8 @@
-# IMPORTANT
+# LINK
+The site can be accessed [here](https://planttracker.netlify.app)
 
-1. Create `.env` file with `REACT_APP_RENDER_URL` parameter ( which is the link to Node JS )
+# IMPORTANT
+1. Create `.env` file with `REACT_APP_RENDER_URL` and `REACT_APP_WEATHER_API_KEY` parameter. (The Render URL is for the NodeJS)
 
 # Getting Started
 
@@ -22,6 +24,4 @@ Targeted Device : IPhone 13 & 14 (390px x 844px)
 1. Recent visited pages in the homepage.
 2. Real-time Weather.  
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/33858cad-917e-4b25-ac35-c23157bc7e7d/deploy-status)](https://app.netlify.com/sites/agroreach/deploys)
-
-# PlantTrackerApp
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05c04490-0223-4d30-a855-31f49fb1d31e/deploy-status)](https://app.netlify.com/sites/planttracker/deploys)
