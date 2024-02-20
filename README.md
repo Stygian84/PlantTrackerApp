@@ -1,4 +1,5 @@
-# [LINK](https://planttracker.netlify.app)
+# [LINK](https://planttracker.netlify.app) 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05c04490-0223-4d30-a855-31f49fb1d31e/deploy-status)](https://app.netlify.com/sites/planttracker/deploys)
 ## The Web App can be accessed [here](https://planttracker.netlify.app)  
 ## The NodeJS can be accessed [here](https://github.com/Stygian84/PlantTrackerNodeJS)
 
@@ -27,4 +28,5 @@ Targeted Device : IPhone 13 & 14 (390px x 844px)
 3. Integration with PostgreSQL Database.
 4. Graphs to show past data in the interval of 30 , 90 , 180 days.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/05c04490-0223-4d30-a855-31f49fb1d31e/deploy-status)](https://app.netlify.com/sites/planttracker/deploys)
+# Database
+![](https://github.com/Stygian84/PlantTrackerApp/blob/main/docs/image/sqldatabase.png)
