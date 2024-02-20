@@ -1,6 +1,6 @@
-# LINK
-The web app can be accessed [here](https://planttracker.netlify.app)
-The NodeJS can be accessed [here](https://github.com/Stygian84/PlantTrackerNodeJS)
+# [LINK](https://planttracker.netlify.app)
+## The Web App can be accessed [here](https://planttracker.netlify.app)  
+## The NodeJS can be accessed [here](https://github.com/Stygian84/PlantTrackerNodeJS)
 
 # IMPORTANT
 1. Create `.env` file with `REACT_APP_RENDER_URL` and `REACT_APP_WEATHER_API_KEY` parameter. (The Render URL is for the NodeJS)
@@ -18,7 +18,7 @@ Targeted Device : IPhone 13 & 14 (390px x 844px)
 
 # Demo
 
-![](https://github.com/Stygian84/CapstoneWebApp/blob/master/docs/image/Desktop%202023.11.22%20-%2011.27.21.01.gif)
+![](https://github.com/Stygian84/PlantTrackerApp/blob/main/docs/image/planttracker.gif)
 
 # Notable Features
 
