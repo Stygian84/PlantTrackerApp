@@ -1,6 +1,6 @@
 # [LINK](https://planttracker.netlify.app) 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/05c04490-0223-4d30-a855-31f49fb1d31e/deploy-status)](https://app.netlify.com/sites/planttracker/deploys)
-## The Web App can be accessed [here](https://planttracker.netlify.app)  
+## The Web App can be accessed [here](https://planttracker.netlify.app) (only for mobile devices)
 ## The NodeJS can be accessed [here](https://github.com/Stygian84/PlantTrackerNodeJS)
 
 # IMPORTANT
